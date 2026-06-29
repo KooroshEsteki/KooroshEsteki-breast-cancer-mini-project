@@ -33,6 +33,7 @@ print("\nMissing values per column:")
 print(df.isna().sum())
 
 # Drop missing values if any exist
+df = df.drop(columns=["Unnamed: 32"], errors="ignore")
 df = df.dropna()
 
 print("\nShape after dropping missing values:")
@@ -46,7 +47,7 @@ print(df.shape)
 # B = Benign tumor
 # 
 
-target = "Diagnosed"
+target = "diagnosis"
 
 print("\nTarget distribution before encoding:")
 print(df[target].value_counts())
